@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <modal-con class="overlay dark">
+        <modal class="loader small">
+            <svg md-loader stroke-width="5" viewBox="0 0 66 66">
+                <circle cx="33" cy="33" r="25" />
+            </svg>
+        </modal>
+    </modal-con>
+
+
+    <div class="formbold-main-wrapper">
+        <div class="formbold-form-wrapper">
+
+            <img src="https://www.mind-spark.org/Mindspark-Monday/img/MS-22%20Logo-01.png">
+
+            <form id="form">
+                <div class="formbold-form-title">
+                    <h2 class="">HOSTEL ACCOMODATION PORTAL</h2>
+                    <p>
+
+                    </p>
+                </div>
+                <div class="container mt-3">
+                    <table class="table">
+                        <thead>
+                            <th>Date</th>
+                            <th>No of seats available for boys</th>
+                            <th>No of seats available for Girls</th>
+                        </thead>
+                        <tbody id="tbody">
+                            <tr>
+                                <td>13th Jan</td>
+                                <td id="1M">...</td>
+                                <td id="1F">...</td>
+                            </tr>
+                            <tr>
+                                <td>14th Jan</td>
+                                <td id="2M">...</td>
+                                <td id="2F">...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="formbold-input-flex">
+                    <div>
+                        <label for="firstname" class="formbold-form-label">
+                            First name
+                        </label>
+                        <input type="text" name="firstname" id="firstname" class="formbold-form-input" />
+                    </div>
+                    <div>
+                        <label for="lastname" class="formbold-form-label"> Last name </label>
+                        <input type="text" name="lastname" id="lastname" class="formbold-form-input" />
+                    </div>
+                </div>
+
+                <div class="formbold-input-flex">
+                    <div>
+                        <label for="email" class="formbold-form-label"> Email </label>
+                        <input type="email" name="email" id="email" class="formbold-form-input" />
+                    </div>
+                    <div>
+                        <label for="phone" class="formbold-form-label"> Phone number </label>
+                        <input type="text" name="phone" id="phone" class="formbold-form-input" />
+                    </div>
+                </div>
+                <div class="formbold-mb-3">
+                    <label for="aadhar" class="formbold-form-label">
+                        Aadhar Number
+                    </label>
+                    <input type="text" name="aadhar" id="aadhar" class="formbold-form-input" />
+                </div>
+
+                <div class="formbold-mb-3">
+                    <label for="address" class="formbold-form-label">
+                        College Name
+                    </label>
+                    <input type="text" name="address" id="address" class="formbold-form-input" />
+                </div>
+
+                <div class="formbold-input-flex">
+                    <div  style="width: 100%;">
+                        <label for="event" class="formbold-form-label"> Date </label>
+                        <select class="formbold-form-input" id= "event"size="1">
+                            <option value="13" selected> 13th Jan </option>
+                            <option value="14"> 14th jan </option>
+
+                        </select>
+                    </div>
+                </div>
+                <div class="formbold-input-flex" style="display: none;">
+                    <div>
+                        <label class="formbold-form-label"> </label>
+                        <input class="formbold-form-input" required />
+                    </div>
+                </div>
+
+                <div class="formbold-input-flex">
+                    <div>
+                        <label for="nop" class="formbold-form-label"> Your Home City </label>
+                        <input type="text" name="nop" id="nop" class="formbold-form-input" />
+                    </div>
+                    <div>
+                        <label for="ticket" class="formbold-form-label"> Event Ticket Number </label>
+                        <input type="text" name="ticket" id="ticket" class="formbold-form-input"/>
+
+                    </div>
+                </div>
+
+                <div class="formbold-input-flex">
+                    <div>
+                        <label class="formbold-form-label"> Number of Boys in Group </label>
+                        <input type="number" name="nop" id="boys" class="formbold-form-input" />
+                    </div>
+                    <div>
+                        <label class="formbold-form-label"> Number of Girls in Group </label>
+                        <input type="number" id="girls" class="formbold-form-input" />
+
+                    </div>
+                </div>
+
+                <div class="formbold-checkbox-wrapper">
+                    <label for="supportCheckbox" class="formbold-checkbox-label">
+                        I agree to the defined
+                        <a href="https://www.mind-spark.org/legals/"> terms, conditions, and policies</a>
+                    </label>
+                </div>
+
+                <button class="formbold-btn" id="sub-btn">Register Now</button>
+            </form>
+        </div>
+    </div>
+    <script type="module">
+
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyAptqmHqUXjv8zPF8i5E1lx46tPbfRNA3s",
+            authDomain: "haprocess-29ade.firebaseapp.com",
+            databaseURL: "https://haprocess-29ade-default-rtdb.firebaseio.com",
+            projectId: "haprocess-29ade",
+            storageBucket: "haprocess-29ade.appspot.com",
+            messagingSenderId: "539952006165",
+            appId: "1:539952006165:web:82e5370a9cbbcb2b14ba1c",
+            measurementId: "G-FGSHJBDEKG"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        import { getDatabase, ref, get, set, child, update, remove } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+
+
+        const db = getDatabase();
+
+        const fname = document.getElementById("firstname"),
+            lname = document.getElementById("lastname"),
+            email = document.getElementById("email"),
+            phone = document.getElementById("phone"),
+            adhar = document.getElementById("aadhar"),
+            clg = document.getElementById("address"),
+            event = document.getElementById("event"),
+            nop = document.getElementById("nop"),
+            ticket = document.getElementById("ticket"),
+            girls = document.getElementById("girls"),
+            boys = document.getElementById("boys");
+
+        const M1 = document.getElementById("1M"),
+            M2 = document.getElementById("2M"),
+            M3 = document.getElementById("3M"),
+            F1 = document.getElementById("1F"),
+            F2 = document.getElementById("2F"),
+            F3 = document.getElementById("3F");
+            
+
+        async function InsertData() {
+            loader.style.display = "block";
+            const dbref = ref(db);
+            var girlcount;
+            var boyscount;
+            var date;
+            
+            if(event.value == 13){
+                date =1;
+            }else if(event.value == 14){
+                date =2;
+            }
+            else{
+                alert("Select Date")
+            }
+            get(child(dbref, "Days/" + "F" + date)).then((snapshot) => {
+                girlcount = Number(snapshot.val());
+            });
+            get(child(dbref, "Days/" + "M" + date)).then((snapshot) => {
+                boyscount = Number(snapshot.val());
+            });
+            var exist = 0;
+            get(child(dbref, "People/" + adhar.value))
+                .then((snapshot) => {
+                    if (snapshot.exists()) {
+                        exist = 1;
+                    } else {
+                        exist = 0;
+                    }
+                })
+                .catch((error) => {
+                    alert(error)
+                });
+
+
+            
+
+            console.log(parseInt(boyscount) - parseInt(boys.value));
+            if (fname.value == "") {
+                alert("First Name is empty");
+            } else if (lname.value == "") {
+                alert("Last Name is empty");
+            } else if (email.value == "") {
+                alert("Email is empty");
+            } else if (phone.value == "" || phone.value.length != 10) {
+                alert("Phone Number is Invalid");
+            } else if (adhar.value == "" || adhar.value.length != 12) {
+                alert("Adhar Value is invalid");
+            } else if (clg.value == "") {
+                alert("College Name is Empty");
+            } else if (event.value == "") {
+                alert("Events Value is Empty");
+            } else if (nop.value == "") {
+                alert("City Value is Empty");
+            } else if (nop.value == "Pune" || nop.value == "pune" || nop.value == "PUNE") {
+                alert("Hospitality is not for Pune students ");
+            } else if (ticket.value == "") {
+                alert("Enter Ticket number/ID")
+            } else if (girls.value == "") {
+                alert("Enter Number of Girls");
+            } else if (boys.value == "") {
+                alert("Enter number of boys");
+            } else if (parseInt(boyscount) - parseInt(boys.value) < 0 || isNaN(parseInt(boyscount) - parseInt(boys.value))) {
+                alert("Sorry! Limit exceeded for this day")
+            }else if(parseInt(girlcount) - parseInt(girls.value) < 0 || isNaN(parseInt(girlcount) - parseInt(girls.value))){
+                alert("Sorry! Limit exceeded for this day")
+            }
+            else if (exist == 1) {
+                alert("Data found with this Adhar Number")
+            }else if(parseInt(boys.value)+parseInt(girls.value) > 4){
+                alert("Number of Participants should be less than 5")
+            }
+            else {
+                await set(ref(db, "People/" + adhar.value), {
+                    Name: fname.value + " " + lname.value,
+                    Email: email.value,
+                    Phone: phone.value,
+                    Adhar: adhar.value,
+                    Clg: clg.value,
+                    Date: event.value,
+                    Day: date,
+                    Noofboys: boys.value,
+                    Noofgirls: girls.value,
+                    TicketID: ticket.value,
+                    city: nop.value
+                })
+                    .then(() => {
+                        loader.style.display = "none";
+                        alert("Data added successfully");
+
+                        set(ref(db, "Days/" + "F" + date), girlcount - girls.value)
+                        set(ref(db, "Days/" + "M" + date), boyscount - boys.value)
+                    })
+                    .catch((error) => {
+                        loader.style.display = "none";
+                        alert(error);
+                    });
+            }
+
+            loader.style.display = "none";
+            reload();
+        }
+
+        const insertBtn = document.getElementById('sub-btn');
+        insertBtn.addEventListener('click', InsertData);
+        const loader = document.querySelector(".overlay");
+        window.onload = function () {
+            const dbref = ref(db);
+            loader.style.display = "none";
+            get(child(dbref, "Days"))
+                .then((snapshot) => {
+                    if (snapshot.exists()) {
+                        M1.innerHTML = snapshot.val().M1;
+                        M2.innerHTML = snapshot.val().M2;
+                        F1.innerHTML = snapshot.val().F1;
+                        F2.innerHTML = snapshot.val().F2;
+                    } else {
+                        alert("No data found");
+                    }
+                })
+                .catch((error) => {
+                    alert(error)
+                })
+        }
+
+    </script>
+
+</body>
+
+</html>
